@@ -1,0 +1,69 @@
+---
+- hosts: kubernetes_master
+  name: Kubernetes master control plane configuration
+  become: yes
+  user: ubuntu
+  tags: master 
+  vars:
+    ansible_ssh_private_key_file: "../mykey"
+  tasks:
+  - name: Run common tasks
+    import_tasks: common.yaml 
+  - name: Configre k8s master node
+    import_tasks: master.yaml
+   
+- hosts: kubernetes_worker1
+  name: Kubernetes workde node configuration
+  become: yes
+  user: ubuntu
+  tags: worker1 
+  vars:
+    ansible_ssh_private_key_file: "../mykey"
+    worker_hostname: "worker1"
+  tasks:
+  - name: Run common tasks
+    import_tasks: common.yaml
+  - name: Configre k8s worker node 
+    import_tasks: worker.yaml
+  
+- hosts: kubernetes_worker2
+  name: Kubernetes workde node configuration
+  become: yes
+  user: ubuntu
+  tags: worker2 
+  vars:
+    ansible_ssh_private_key_file: "../mykey"
+    worker_hostname: "worker2"
+  tasks:
+  - name: Run common tasks
+    import_tasks: common.yaml 
+  - name: Configre k8s worker node 
+    import_tasks: worker.yaml
+
+- hosts: kubernetes_worker3
+  name: Kubernetes workde node configuration
+  become: yes
+  user: ubuntu
+  tags: worker3
+  vars:
+    ansible_ssh_private_key_file: "../mykey"
+    worker_hostname: "worker3"
+  tasks:
+  - name: Run common tasks
+    import_tasks: common.yaml 
+  - name: Configre k8s worker node 
+    import_tasks: worker.yaml
+
+- hosts: kubernetes_worker4
+  name: Kubernetes workde node configuration
+  become: yes
+  user: ubuntu
+  tags: worker4
+  vars:
+    ansible_ssh_private_key_file: "../mykey"
+    worker_hostname: "worker4"
+  tasks:
+  - name: Run common tasks
+    import_tasks: common.yaml 
+  - name: Configre k8s worker node 
+    import_tasks: worker.yaml

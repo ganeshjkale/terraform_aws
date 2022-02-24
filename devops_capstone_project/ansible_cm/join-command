@@ -1,0 +1,1 @@
+kubeadm join 172.31.90.184:6443 --token wpaasp.xtelh2vo86qqkkc9 --discovery-token-ca-cert-hash sha256:440f568345407cc7af16d2d7ed7f43102339992b78c60246152188443e2a8f6b 
